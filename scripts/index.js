@@ -21,6 +21,7 @@ function createNote(note) {
     refreshTables();
     showAnnouncer('Note created successfully!');
 }
+
 function updateNote(note) {
     try {
         let index = notes.findIndex(n => n.id === note.id);
@@ -34,6 +35,7 @@ function updateNote(note) {
         showAnnouncer("Note wasn't updated!", true);
     }
 }
+
 function deleteNote(noteID) {
     try {
         let index = notes.findIndex(n => n.id === noteID);
@@ -49,6 +51,7 @@ function deleteNote(noteID) {
         showAnnouncer("Note wasn't updated!", true);
     }
 }
+
 function changeArchiveState(note) {
     notes[notes.findIndex(n => n.id === note.id)].archived = !notes[notes.findIndex(n => n.id === note.id)].archived;
     refreshTables()
@@ -119,14 +122,17 @@ function refreshTables() {
     buildNotesTable();
     buildStatisticTable();
 }
+
 function clearAllTables() {
     clearInnerHTML(notesTable);
     clearInnerHTML(statisticsTable);
 }
+
 function clearInnerHTML(parent) {
     while (parent.firstChild)
         parent.removeChild(parent.firstChild);
 }
+
 function buildStatisticTable() {
     let Ideas, Quotes, Tasks, Thoughts, IdeasActive, QuotesActive, TasksActive, ThoughtsActive;
     Ideas = Quotes = Tasks = Thoughts = IdeasActive = QuotesActive = TasksActive = ThoughtsActive = 0;
@@ -159,6 +165,7 @@ function buildStatisticTable() {
     statisticsTable.innerHTML += (Tasks) ? buildStatTr('Task', TasksActive, Tasks) : ``;
     statisticsTable.innerHTML += (Thoughts) ? buildStatTr('Random Thought', ThoughtsActive, Thoughts) : ``;
 }
+
 function buildStatTr(category, active, total) {
     return `
         <tr>
@@ -169,12 +176,14 @@ function buildStatTr(category, active, total) {
         </tr>
     `;
 }
+
 function buildNotesTable() {
     notes.forEach(note => {
         if (!note.archived === activeNoteTableShown)
             notesTable.append(buildNotesTr(note));
     })
 }
+
 function buildNotesTr(note) {
     let tr = document.createElement('tr');
     tr.id = note.id;

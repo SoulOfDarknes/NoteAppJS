@@ -60,6 +60,10 @@ svg {
   max-width: 2em;
 }
 
+/* svg:first-child {
+  background-color: var(--title-table-color);
+} */
+
 @media screen and (max-width: 800px) {
   .created,
   .dates {

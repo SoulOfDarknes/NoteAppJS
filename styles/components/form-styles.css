@@ -1,8 +1,11 @@
+@import "./var.css";
+
 #create-note {
   margin: 2em 0;
   display: flex;
   justify-content: end;
 }
+
 #create-note * {
   font-size: 1em;
   margin-left: 2em;
@@ -10,13 +13,16 @@
   background-color: var(--background-table-color);
   border-radius: 0.5em;
 }
+
 #create-note div {
   opacity: 0;
   transition: opacity 1s;
 }
+
 #create-note button {
   border: 1px solid;
 }
+
 .wrapper-div {
   position: fixed;
   top: 0;
@@ -27,25 +33,29 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  background-color: var(--img-color);
+  background-color: rgba(var(--img-color) 0.5);
 }
+
 form * {
   box-sizing: border-box;
-  border: 1px solid var(--img-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 form {
   width: 20em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: var(--text-color);
   border-radius: 0.5em;
   padding: 1em;
 }
+
 form > *:not(:last-child) {
   margin-bottom: 0.5em;
 }
+
 input,
 select,
 textarea {
@@ -53,11 +63,13 @@ textarea {
   max-width: 100%;
   padding: 10px;
 }
+
 textarea {
   min-width: 100%;
   min-height: 4em;
   max-height: 12em;
 }
+
 .invalid-input {
   border-color: crimson;
   background-color: rgba(220, 20, 60, 0.5);
