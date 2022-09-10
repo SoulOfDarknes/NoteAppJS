@@ -1,6 +1,9 @@
 @import "var.css";
 
-.main__table {
+.header__title {
+  text-align: center;
+}
+table {
   border-spacing: 0 0.5em;
   width: 100%;
   table-layout: fixed;
