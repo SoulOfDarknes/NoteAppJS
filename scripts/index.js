@@ -5,7 +5,7 @@ let statisticsTable = document.getElementById('stats-table'),
     notesTable = document.getElementById('active-archive-table'),
     activeNoteTableShown = true;
 
-//dynamic loading svg icons so they could be styled
+//svg icons to styled
 function loadIconsIntoHeader() {
     Array.from(document.getElementsByClassName('header-icon')).forEach(col => {
         if (col.classList.contains('archive'))
@@ -15,7 +15,7 @@ function loadIconsIntoHeader() {
     });
 }
 
-//Note function
+//Note
 function createNote(note) {
     notes.push(note);
     refreshTables();
@@ -58,7 +58,7 @@ function changeArchiveState(note) {
     showAnnouncer(`Note ${(activeNoteTableShown) ? 'archived' : 'unarchived'} successfully!`);
 }
 
-//announcer for users activity
+//announcer
 function showAnnouncer(text, error) {
     let announcer = document.getElementById('announcer')
     announcer.style.opacity = '1';
@@ -78,7 +78,7 @@ function buildForm(note) {
     form.innerHTML = `
         <input type="text" name="name" value="${typeof note.name === "string" ? note.name : ''}" placeholder="Name" required>
         <select name="categories">
-        ` + Object.keys(categories).map(c => `<option value="${c}" ${note.category === c ? 'selected' : ''}>${c}</option>`) + `
+        ` + Object.keys(categories).map(elem => `<option value="${elem}" ${note.category === elem ? 'selected' : ''}>${elem}</option>`) + `
         </select>
         <textarea name="content" placeholder="Content">${note.content ? note.content : ''}</textarea>
         <input class="cancel" type="button" value="Cancel">
@@ -116,7 +116,7 @@ function buildForm(note) {
     document.body.prepend(wrapperDiv);
 }
 
-//table functions
+//table
 function refreshTables() {
     clearAllTables();
     buildNotesTable();
@@ -169,7 +169,7 @@ function buildStatisticTable() {
 function buildStatTr(category, active, total) {
     return `
         <tr>
-            <td className="category-icon stats-icon">${categories[category]}</td>
+            <td className="category-icon stats-icon"><div class="back-color">${categories[category]}</div></td>
             <td className="category2">${category}</td>
             <td className="active">${active}</td>
             <td className="archived">${total - active}</td>
@@ -188,7 +188,7 @@ function buildNotesTr(note) {
     let tr = document.createElement('tr');
     tr.id = note.id;
     tr.innerHTML = `
-            <td className="category-icon">${categories[note.category]}</td>
+            <td className="category-icon"><div class="back-color">${categories[note.category]}</div></td>
             <td className="name">${note.name}</td>
             <td className="created">${note.created.toLocaleDateString()}</td>
             <td className="category1">${note.category}</td>

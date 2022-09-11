@@ -30,11 +30,11 @@ tr th:last-child {
   fill: #424242;
 }
 .header-icon {
-  fill: ghostwhite;
+  fill: var(--text-color);
 }
 td,
 th {
-  padding: 1em;
+  padding: 0.4em;
   text-align: left;
   overflow: hidden;
   white-space: nowrap;
@@ -60,10 +60,14 @@ svg {
   max-width: 2em;
 }
 
-/* svg:first-child {
-  background-color: var(--title-table-color);
-} */
-
+.back-color {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 10px 0 0 10px;
+  fill: white;
+}
 @media screen and (max-width: 800px) {
   .created,
   .dates {
